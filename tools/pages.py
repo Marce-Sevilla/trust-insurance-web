@@ -40,7 +40,7 @@ CTA = """    <section class="section" style="padding-bottom:0">
             <p data-en="Our team is ready to help you find the right insurance. Reach us through any channel.">Nuestro equipo está listo para ayudarte a encontrar el seguro perfecto. Contáctanos por cualquier canal.</p>
           </div>
           <div class="cta-actions">
-            <a class="tel" href="tel:+13054190338">(305) 419-0338</a>
+            <a class="tel" href="tel:+17868078559">(786) 807-8559</a>
             <a class="btn btn-navy" href="{href}" data-en="Request a free quote">Solicitar cotización gratuita</a>
           </div>
         </div>
@@ -243,7 +243,7 @@ for k in ORDER:
             <p class="lead" data-en="{s['intro'][1]}">{s['intro'][0]}</p>
             <div class="hero-actions" style="margin:0">
               <a class="btn {'btn-navy' if k in ('home',) else ''}" href="contacto.html?tipo={k}" data-en="Get my quote">Cotizar mi seguro</a>
-              <a class="btn btn-ghost btn-noarrow" href="tel:+13054190338">(305) 419-0338</a>
+              <a class="btn btn-ghost btn-noarrow" href="tel:+17868078559">(786) 807-8559</a>
             </div>
           </div>
           <div class="photo" style="background-image:url(assets/img/services/{k}.jpg)" role="img" aria-label="{s['es']}"><span class="badge" data-icon="{s['icon']}"></span></div>
@@ -299,7 +299,7 @@ def typ(v, ic, es, en, checked=False):
     return f'<label class="type"><input type="radio" name="tipo" value="{v}"{" checked" if checked else ""}><span><i data-icon="{ic}"></i><b data-en="{en}">{es}</b></span></label>'
 
 write("contacto.html", "Contacto y cotización | Trust Insurance Services", "Contact & quote | Trust Insurance Services",
- "Cotiza gratis tu seguro en Florida. Llámanos al (305) 419-0338 o escríbenos a hello@trustinsuranceservices.com.", f"""
+ "Cotiza gratis tu seguro en Florida. Llámanos al (786) 807-8559 o escríbenos a hello@trustinsuranceservices.com.", f"""
     <section class="page-hero gridbg" style="padding-bottom:clamp(32px,5vw,64px)">
       <div class="container">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span data-en="Contact">Contacto</span></nav>
@@ -353,7 +353,7 @@ write("contacto.html", "Contacto y cotización | Trust Insurance Services", "Con
               <div class="tick">✓</div>
               <h2 data-en="Almost done!">¡Casi listo!</h2>
               <p class="lead" style="margin-inline:auto" data-en="Your email app should have opened with your request ready to send. If not, call us and we'll help right away.">Se debe haber abierto tu app de correo con la solicitud lista para enviar. Si no, llámanos y te atendemos de inmediato.</p>
-              <a class="btn" href="tel:+13054190338">(305) 419-0338</a>
+              <a class="btn" href="tel:+17868078559">(786) 807-8559</a>
             </div>
           </div>
         </form>
@@ -361,7 +361,7 @@ write("contacto.html", "Contacto y cotización | Trust Insurance Services", "Con
         <aside class="reveal" style="--d:.1s">
           <div class="info-card">
             <h3 data-en="Prefer to talk <em>to a person?</em>">¿Prefieres hablar <em>con una persona?</em></h3>
-            <div class="info-item"><small data-en="PHONE">TELÉFONO</small><a href="tel:+13054190338">(305) 419-0338</a></div>
+            <div class="info-item"><small data-en="PHONE">TELÉFONO</small><a href="tel:+17868078559">(786) 807-8559</a></div>
             <div class="info-item"><small>EMAIL</small><a href="mailto:hello@trustinsuranceservices.com">hello@trustinsuranceservices.com</a></div>
             <div class="info-item"><small data-en="ADDRESS">DIRECCIÓN</small><span>10505 NW 112th Ave Ste 11,<br>Miami, FL 33178</span></div>
             <a class="btn btn-white" href="https://maps.google.com/?q=10505+NW+112th+Ave+Ste+11+Miami+FL+33178" target="_blank" rel="noopener" data-en="Get directions">Cómo llegar</a>

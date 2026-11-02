@@ -25,7 +25,7 @@
     ['Cotización gratis en menos de 5 minutos', 'Free quote in under 5 minutes'],
     ['Comparamos más de 100 opciones', 'We compare 100+ options'],
     ['Asesoría personalizada en Florida', 'Personalized advice in Florida'],
-    ['Llámanos al (305) 419-0338', 'Call us at (305) 419-0338']
+    ['Llámanos al (786) 807-8559', 'Call us at (786) 807-8559']
   ];
   var tickHtml = tick.map(function (t) { return '<span data-en="' + t[1] + '">' + t[0] + '</span>'; }).join('');
 
@@ -71,14 +71,14 @@
           '<li><a href="nosotros.html" data-en="About us">Nosotros</a></li><li><a href="servicios.html" data-en="All services">Todos los servicios</a></li>' +
           '<li><a href="contacto.html" data-en="Contact">Contacto</a></li></ul></div>' +
         '<div><h4 data-en="Contact">Contacto</h4><ul>' +
-          '<li><a href="tel:+13054190338">(305) 419-0338</a></li>' +
+          '<li><a href="tel:+17868078559">(786) 807-8559</a></li>' +
           '<li><a href="mailto:hello@trustinsuranceservices.com">hello@trustinsuranceservices.com</a></li>' +
           '<li><a href="https://maps.google.com/?q=10505+NW+112th+Ave+Ste+11+Miami+FL+33178" target="_blank" rel="noopener">10505 NW 112th Ave Ste 11,<br>Miami, FL 33178</a></li></ul></div>' +
       '</div>' +
       '<div class="footer-bottom"><span>© <span id="year"></span> Trust Insurance Services. <span data-en="All rights reserved.">Todos los derechos reservados.</span></span>' +
       '<span><a href="https://trustinsuranceservices.com/privacy-policy" rel="noopener" target="_blank" data-en="Privacy policy">Política de privacidad</a> · <a href="https://trustinsuranceservices.com/terms-conditions" rel="noopener" target="_blank" data-en="Terms &amp; conditions">Términos y condiciones</a></span></div>' +
     '</div><div class="footer-big" aria-hidden="true">TRUST</div></footer>' +
-    '<nav class="mobile-bar" aria-label="Acciones rápidas"><a class="btn btn-sm btn-noarrow" href="tel:+13054190338" data-en="Call">Llamar</a><a class="btn btn-sm" href="contacto.html" data-en="Get a quote">Cotizar ahora</a></nav>' +
+    '<nav class="mobile-bar" aria-label="Acciones rápidas"><a class="btn btn-sm btn-noarrow" href="tel:+17868078559" data-en="Call">Llamar</a><a class="btn btn-sm" href="contacto.html" data-en="Get a quote">Cotizar ahora</a></nav>' +
     '<div class="progress" id="progress" aria-hidden="true"></div>';
 
   var h = document.getElementById('site-header'); if (h) h.outerHTML = header;
