@@ -246,7 +246,7 @@ for k in ORDER:
               <a class="btn btn-ghost btn-noarrow" href="tel:+13054190338">(305) 419-0338</a>
             </div>
           </div>
-          <div class="photo" style="background-image:url(assets/img/services/{k}.webp)" role="img" aria-label="{s['es']}"><span class="badge" data-icon="{s['icon']}"></span></div>
+          <div class="photo" style="background-image:url(assets/img/services/{k}.jpg)" role="img" aria-label="{s['es']}"><span class="badge" data-icon="{s['icon']}"></span></div>
         </div>
       </div>
     </section>

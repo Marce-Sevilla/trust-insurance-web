@@ -42,7 +42,7 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 
 ## Fotografía (`assets/img/`)
 
-`services/` (4 fotos 1200×800, webp) · `people/` (retratos de testimonios, 220 px) · `about/` (formulario en tableta). Todas optimizadas (≈1,8 MB en total); originales de varios MB descartados.
+`services/` (4 fotos nuevas, jpg 1400 px; originales pesados en `assets/originals/`, fuera de git) · `people/` (retratos de testimonios, 220 px) · `about/` (formulario en tableta). Todas optimizadas (≈1,8 MB en total); originales de varios MB descartados.
 
 ## Estructura del sitio
 
