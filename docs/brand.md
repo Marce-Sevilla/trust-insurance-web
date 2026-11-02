@@ -42,18 +42,20 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 
 ## Estructura del sitio
 
-`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `blog` · `contacto` (asistente de 3 pasos)
+`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `blog` + 6 artículos (`blog-*.html`) · `contacto` (asistente de 3 pasos)
 
 ## Cómo editar
 
 - **Bilingüe:** el texto en español va en el HTML y el inglés en el atributo `data-en` del mismo elemento.
 - **Header, footer e iconos:** `js/layout.js` (un solo lugar para todas las páginas).
-- **Páginas internas:** se generan con `python3 tools/pages.py`; `index.html` se edita a mano.
+- **Páginas internas y artículos:** se generan con `python3 tools/pages.py`; `index.html` se edita a mano (el bloque entre `BLOG:START` y `BLOG:END` se rellena solo).
+- **Artículos:** viven en `content/blog/*.json`, importados de la web actual con `python3 tools/import_content.py`.
 
 ## Pendiente
 
 - Fotos o video reales (hero, servicios, testimonios); hoy el diseño usa solo logo, color y tipografía
-- Artículos completos del blog (hoy solo el listado)
+- Imágenes de portada de los artículos (hoy usan el isotipo; las originales están en la web actual)
+- Páginas legales: el footer enlaza a las de la web actual (privacy-policy y terms-conditions)
 - Conectar el formulario a un servicio de envío (hoy abre el correo del usuario con la solicitud prellenada)
 - Revisar los textos en inglés y las respuestas de FAQ
 - Confirmar con el cliente las cifras (`< 5 min`, `100+`, `100%`) y los testimonios

@@ -294,27 +294,93 @@ for k in ORDER:
 {cta(href=f"contacto.html?tipo={k}")}""")
 
 # ---------------------------------------------------------------- BLOG
+import glob, json, re as _re
+
+MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+MESES_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+def load_posts():
+    posts = [json.load(open(f, encoding="utf-8")) for f in glob.glob(os.path.join(ROOT, "content", "blog", "*.json"))]
+    posts.sort(key=lambda p: p["date"], reverse=True)
+    for p in posts:
+        y, m, d = map(int, p["date"].split("-"))
+        p["date_es"] = f"{d} de {MESES_ES[m-1]} de {y}"
+        p["date_en"] = f"{MESES_EN[m-1]} {d}, {y}"
+        first = _re.search(r"<p>(.*?)</p>", p["html"], _re.S)
+        plain = _re.sub(r"<[^>]+>", "", first.group(1)).strip() if first else ""
+        desc = p["desc"] if p["desc"].count(",") < 3 else plain
+        p["excerpt"] = (desc[:157].rsplit(" ", 1)[0] + "…") if len(desc) > 160 else desc
+        p["file"] = f"blog-{p['slug']}.html"
+    return posts
+
+def esc(t):
+    return t.replace("&", "&amp;").replace('"', "&quot;")
+
+def post_card(p, i=0):
+    d = f' style="--d:{i*0.1:.1f}s"' if i else ""
+    return (f'<a class="post reveal" href="{p["file"]}"{d}><div class="cover"><img src="assets/isotipo-360.png" alt=""><b>Insurance Updates</b></div>'
+            f'<div class="body"><time datetime="{p["date"]}" data-en="{p["date_en"]} · {p["read"]} min read">{p["date_es"]} · {p["read"]} min de lectura</time>'
+            f'<h3>{p["title"]}</h3><p>{p["excerpt"]}</p><span class="link-arrow" data-en="Read article">Leer artículo</span></div></a>')
+
+POSTS = load_posts()
+
+# Vista previa en la home: se reescribe entre marcadores
+idx_path = os.path.join(ROOT, "index.html")
+idx = open(idx_path, encoding="utf-8").read()
+cards = "\n          ".join(post_card(p, i) for i, p in enumerate(POSTS[:3]))
+idx = _re.sub(r"(<!-- BLOG:START -->).*?(<!-- BLOG:END -->)", lambda m: m.group(1) + '\n          ' + cards + '\n          ' + m.group(2), idx, flags=_re.S)
+open(idx_path, "w", encoding="utf-8").write(idx)
+print("updated index.html blog preview")
+
+allcards = "\n          ".join(post_card(p, i % 3) for i, p in enumerate(POSTS))
 write("blog.html", "Blog | Trust Insurance Services", "Blog | Trust Insurance Services",
- "Información clara sobre seguros en Florida: auto, hogar, salud y negocio.", f"""
+ "Información clara sobre seguros de auto en Florida y más, en español.", f"""
     <section class="page-hero gridbg">
       <div class="container">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span>Blog</span></nav>
         <p class="eyebrow reveal">Insurance Updates</p>
         <h1 class="reveal" style="--d:.08s" data-en="Clear information to <em>choose with confidence</em>">Información clara para <em>elegir con confianza</em></h1>
-        <p class="lead reveal" style="--d:.16s" data-en="Guides and news about insurance in Florida, written to be easy to understand.">Guías y novedades sobre seguros en Florida, escritas para entenderse fácil.</p>
+        <p class="lead reveal" style="--d:.16s" data-en="Guides and news about insurance in Florida, written to be easy to understand. Articles are in Spanish.">Guías y novedades sobre seguros en Florida, escritas para entenderse fácil.</p>
       </div>
     </section>
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="posts">
-          <article class="post reveal"><div class="cover"><img src="assets/isotipo-360.png" alt=""><b>Insurance Updates</b></div><div class="body"><time datetime="2026-01-30" data-en="January 30, 2026">30 de enero de 2026</time><h3 data-en="Driving without insurance in Florida: fines, consequences and how to avoid them">Manejar sin seguro en Florida: multas, consecuencias y cómo evitarlas</h3><p data-en="Driving without auto insurance in Florida is a serious violation that can bring major legal and financial consequences. Many people don't know the real impact until they face a high fine, a suspended license or trouble insuring their vehicle again.">Manejar sin seguro de auto en Florida es una infracción grave que puede traer consecuencias legales y financieras importantes. Muchas personas desconocen el impacto real hasta que enfrentan una multa elevada, la suspensión de su licencia o problemas para volver a asegurar su vehículo.</p></div></article>
-          <article class="post reveal" style="--d:.1s"><div class="cover"><img src="assets/isotipo-360.png" alt=""><b>Insurance Updates</b></div><div class="body"><time datetime="2026-03-30" data-en="March 30, 2026">30 de marzo de 2026</time><h3 data-en="Cheap car insurance in Miami: avoid costly mistakes">Seguro de auto barato en Miami: evita errores costosos</h3><p data-en="Finding cheap car insurance in Miami is a priority for many drivers who want to cut costs without compromising mobility. But in trying to save, rushed decisions often create more problems than benefits.">Encontrar un seguro de auto barato en Miami es una prioridad para muchos conductores que buscan reducir gastos sin comprometer su movilidad. Sin embargo, en ese intento por ahorrar, es común tomar decisiones rápidas que terminan generando más problemas que beneficios.</p></div></article>
-          <article class="post reveal" style="--d:.2s"><div class="cover"><img src="assets/isotipo-360.png" alt=""><b>Insurance Updates</b></div><div class="body"><h3 data-en="What happens if you drive without insurance in Florida? Fines and risks">¿Qué pasa si manejas sin seguro en Florida? Multas y riesgos</h3><p data-en="Driving without insurance in Florida is more common than it seems, but it is also one of the riskiest mistakes you can make as a driver.">Manejar sin seguro en Florida es más común de lo que parece, pero también es uno de los errores más riesgosos que puedes cometer como conductor.</p></div></article>
+          {allcards}
         </div>
-        <p class="note reveal" data-en="Full articles are being migrated to this new site.">Los artículos completos se están migrando a este nuevo sitio.</p>
       </div>
     </section>
 {cta()}""")
+
+for i, p in enumerate(POSTS):
+    others = [o for o in POSTS if o is not p][:2]
+    rel = "\n          ".join(post_card(o, k) for k, o in enumerate(others))
+    ld = json.dumps({"@context": "https://schema.org", "@type": "Article", "headline": p["title"], "datePublished": p["date"],
+                     "inLanguage": "es", "author": {"@type": "Organization", "name": "Trust Insurance Services"},
+                     "publisher": {"@type": "Organization", "name": "Trust Insurance Services"}}, ensure_ascii=False)
+    write(p["file"], f"{p['title']} | Trust Insurance Services", f"{p['title']} | Trust Insurance Services", esc(p["excerpt"]), f"""
+    <script type="application/ld+json">{ld}</script>
+    <section class="page-hero gridbg" style="padding-bottom:clamp(32px,5vw,56px)">
+      <div class="container narrow-art">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><a href="blog.html">Blog</a><span>Artículo</span></nav>
+        <p class="eyebrow">Insurance Updates</p>
+        <h1 style="font-size:clamp(2.1rem,4.6vw,3.8rem);max-width:none">{p['title']}</h1>
+        <p class="art-meta"><time datetime="{p['date']}" data-en="{p['date_en']} · {p['read']} min read">{p['date_es']} · {p['read']} min de lectura</time></p>
+        <p class="note lang-note" data-en="This article is available in Spanish only." style="margin:0"></p>
+      </div>
+    </section>
+    <article class="container narrow-art article">
+{p['html']}
+    </article>
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow" data-en="Keep reading">Sigue leyendo</p></div>
+        <div class="posts two">
+          {rel}
+        </div>
+      </div>
+    </section>
+{cta(h="¿Quieres que revisemos <em>tu póliza?</em>", h_en="Want us to review <em>your policy?</em>")}""")
 
 # ---------------------------------------------------------------- CONTACTO
 def typ(v, ic, es, en, checked=False):

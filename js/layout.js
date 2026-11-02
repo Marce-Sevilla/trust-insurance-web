@@ -17,7 +17,7 @@
   var I = window.TRUST_ICONS;
 
   var page = (location.pathname.split('/').pop() || 'index.html');
-  function cur(f) { return page === f ? ' aria-current="page"' : ''; }
+  function cur(f) { return (page === f || (f === 'blog.html' && page.indexOf('blog-') === 0)) ? ' aria-current="page"' : ''; }
   if (page === 'contacto.html') document.body.classList.add('page-contact');
   var inServices = /^seguro-|^servicios/.test(page);
 
@@ -57,12 +57,14 @@
   var fb = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.500 21v-7.500H16l.5-3h-3V8.700c0-.9.300-1.500 1.600-1.500h1.500V4.500C16.300 4.400 15.400 4.300 14.500 4.300c-2.300 0-3.900 1.400-3.900 4v2.200H8v3h2.600V21h2.900Z"/></svg>';
   var ig = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.500 3h9A4.500 4.500 0 0 1 21 7.500v9a4.500 4.500 0 0 1-4.500 4.500h-9A4.500 4.500 0 0 1 3 16.500v-9A4.500 4.500 0 0 1 7.500 3Zm0 1.800A2.700 2.700 0 0 0 4.800 7.500v9a2.700 2.700 0 0 0 2.700 2.700h9a2.700 2.700 0 0 0 2.700-2.700v-9a2.700 2.700 0 0 0-2.700-2.700h-9ZM12 7.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9Zm0 1.800a2.700 2.700 0 1 0 0 5.400 2.700 2.700 0 0 0 0-5.400Zm4.900-2.600a1.050 1.050 0 1 1 0 2.100 1.050 1.050 0 0 1 0-2.100Z"/></svg>';
 
+  var yt = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.600 7.200a2.500 2.500 0 0 0-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4a2.500 2.500 0 0 0-1.800 1.800C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800c.4-1.600.4-4.800.4-4.800s0-3.200-.4-4.800ZM10 15V9l5.200 3-5.200 3Z"/></svg>'; var tk = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.500 3c.3 2.300 1.600 3.700 3.800 3.900v3a7 7 0 0 1-3.700-1.100v6.100a6 6 0 1 1-6-6c.3 0 .6 0 .9.100v3.100a3 3 0 1 0 2.100 2.800V3h2.900Z"/></svg>';
+
   var footer =
     '<footer class="site-footer"><div class="container">' +
       '<div class="footer-grid">' +
         '<div class="footer-brand"><img src="assets/logo-horizontal-720.png" width="720" height="284" alt="Trust Insurance" loading="lazy">' +
           '<p data-en="Insurance agency in Florida. We compare 100+ options so you get the right balance of price and protection.">Agencia de seguros en Florida. Comparamos más de 100 opciones para darte el equilibrio justo entre precio y respaldo.</p>' +
-          '<div class="social"><a href="https://www.facebook.com/trustinsuranceserv" rel="noopener" target="_blank" aria-label="Facebook">' + fb + '</a><a href="https://www.instagram.com/trustinsuranceserv/" rel="noopener" target="_blank" aria-label="Instagram">' + ig + '</a></div></div>' +
+          '<div class="social"><a href="https://www.facebook.com/trustinsuranceserv" rel="noopener" target="_blank" aria-label="Facebook">' + fb + '</a><a href="https://www.instagram.com/trustinsuranceserv/" rel="noopener" target="_blank" aria-label="Instagram">' + ig + '</a><a href="https://www.youtube.com/@TrustInsuranceservices" rel="noopener" target="_blank" aria-label="YouTube">' + yt + '</a><a href="https://www.tiktok.com/@trustinsuranceservices" rel="noopener" target="_blank" aria-label="TikTok">' + tk + '</a></div></div>' +
         '<div><h4 data-en="Services">Servicios</h4><ul>' +
           '<li><a href="seguro-auto.html" data-en="Auto insurance">Seguro de Auto</a></li><li><a href="seguro-hogar.html" data-en="Home insurance">Seguro de Hogar</a></li>' +
           '<li><a href="seguro-comercial.html" data-en="Commercial insurance">Seguro Comercial</a></li><li><a href="seguro-salud.html" data-en="Health insurance">Seguro de Salud</a></li></ul></div>' +
@@ -75,7 +77,7 @@
           '<li><a href="https://maps.google.com/?q=10505+NW+112th+Ave+Ste+11+Miami+FL+33178" target="_blank" rel="noopener">10505 NW 112th Ave Ste 11,<br>Miami, FL 33178</a></li></ul></div>' +
       '</div>' +
       '<div class="footer-bottom"><span>© <span id="year"></span> Trust Insurance Services. <span data-en="All rights reserved.">Todos los derechos reservados.</span></span>' +
-      '<span data-en="Insurance agency · Miami, Florida">Agencia de seguros · Miami, Florida</span></div>' +
+      '<span><a href="https://trustinsuranceservices.com/privacy-policy" rel="noopener" target="_blank" data-en="Privacy policy">Política de privacidad</a> · <a href="https://trustinsuranceservices.com/terms-conditions" rel="noopener" target="_blank" data-en="Terms &amp; conditions">Términos y condiciones</a></span></div>' +
     '</div><div class="footer-big" aria-hidden="true">TRUST</div></footer>' +
     '<nav class="mobile-bar" aria-label="Acciones rápidas"><a class="btn btn-sm btn-noarrow" href="tel:+13054190338" data-en="Call">Llamar</a><a class="btn btn-sm" href="contacto.html" data-en="Get a quote">Cotizar ahora</a></nav>' +
     '<div class="progress" id="progress" aria-hidden="true"></div>';

@@ -9,7 +9,9 @@ css/styles.css     Sistema de diseño
 js/layout.js       Header, footer e iconos compartidos
 js/main.js         Idioma, menú, animaciones, cotizador y asistente
 assets/            Logos
-tools/pages.py     Genera las páginas internas
+tools/pages.py     Genera las páginas internas y artículos
+tools/import_content.py  Importa artículos de la web actual
+content/blog/      Artículos (JSON)
 docs/brand.md      Identidad y guía de diseño
 ```
 
