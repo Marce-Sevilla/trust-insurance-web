@@ -1,41 +1,59 @@
-# Identidad — Trust Insurance Services
+# Identidad y sistema de diseño — Trust Insurance Services
 
-Tomada de la landing actual (trustinsuranceservices.com). Los tokens viven en `:root` de `css/styles.css`.
+Los tokens viven en `:root` de `css/styles.css`.
+
+## Logos (`assets/`)
+
+| Archivo | Uso |
+|---|---|
+| `logo_horizontal.png`, `logo_vertical.png`, `isotipo.png` | Originales de marca (no editar) |
+| `logo-horizontal-720.png` | Header y footer (sobre azul marino) |
+| `isotipo-360.png` | Marcas de agua y portadas del blog |
+| `favicon.png`, `apple-touch-icon.png` | Iconos del navegador |
+
+El logo tiene "INSURANCE" en gris claro: **usarlo siempre sobre fondos oscuros** (azul marino).
 
 ## Color
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--navy` | `#001d3d` | Texto, secciones oscuras, header |
-| `--navy-soft` | `#0a3260` | Fondo de apoyo del hero |
+| `--navy` | `#001d3d` | Texto, header, secciones oscuras |
+| `--navy-deep` | `#00132b` | Footer, menú móvil |
 | `--ice` | `#fafeff` | Fondo general |
-| `--orange` | `#f65a13` | Botones, acentos, numeración |
-| `--orange-dark` | `#d94a0a` | Hover de botones |
-| `--muted` | `#4d6078` | Texto secundario |
-| `--line` | `#d9e4ee` | Bordes |
+| `--orange` | `#f65a13` | Acción principal y acentos |
+| `--grad` | `#e8402a → #f65a13 → #f9a22b` | Cifras y banda CTA (toma el degradado del logo) |
+| `--cream` | `#fff1e6` | Fondo cálido (tinte del naranja) |
+| `--sky` | `#e6eff8` | Fondo frío (tinte del azul) |
 
-Nota de accesibilidad: texto blanco sobre naranja da ~3,4:1; usar solo en botones de texto grande y en negrita.
+Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negrita.
 
 ## Tipografía
 
-- **Titulares:** Playfair Display (500), clamp 2–4,6 rem.
-- **Cuerpo, botones, etiquetas:** Montserrat (400–800). Etiquetas en mayúsculas con espaciado.
-- Ambas desde Google Fonts.
+- **Titulares:** Playfair Display 500, con una palabra clave en *itálica naranja* (`<em>`).
+- **Cuerpo, botones y etiquetas:** Montserrat; etiquetas y botones en mayúsculas con espaciado.
 
-## Componentes
+## Patrones (tomados de las referencias)
 
-- Header: píldora flotante navy translúcida con blur; botón naranja "Cotizar ahora".
-- Botones: píldora (radio 999 px), mayúsculas.
-- Tarjetas: radio 16 px, borde fino, elevan 4 px en hover.
-- Secciones alternan `--ice` y `--navy`.
+- Menú flotante en píldora + aviso superior en marquesina (Broworks)
+- Cuadrícula de líneas finas, numeración `/ 01` y cifras animadas (BoostLab, Citadel)
+- Serif con itálica de acento, tarjeta de cotización, pasos (Zenarate)
+- Secciones que alternan color de fondo y bento de servicios (Broworks, Citadel)
+- Carrusel de testimonios, FAQ en acordeón, footer con marca gigante
 
-## Logo
+## Estructura del sitio
 
-`assets/logo.svg` y `assets/favicon.svg` son una reconstrucción propia (escudo naranja con check + wordmark) a partir de lo observado en la web actual. **Reemplazar por los archivos originales de la marca.**
+`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `blog` · `contacto` (asistente de 3 pasos)
+
+## Cómo editar
+
+- **Bilingüe:** el texto en español va en el HTML y el inglés en el atributo `data-en` del mismo elemento.
+- **Header, footer e iconos:** `js/layout.js` (un solo lugar para todas las páginas).
+- **Páginas internas:** se generan con `python3 tools/pages.py`; `index.html` se edita a mano.
 
 ## Pendiente
 
-- Foto o video real del hero (`assets/hero.jpg`)
-- Logo original, fotos de servicios y testimonios
-- Formulario conectado a un servicio de envío
-- Revisar textos EN y FAQ
+- Fotos o video reales (hero, servicios, testimonios); hoy el diseño usa solo logo, color y tipografía
+- Artículos completos del blog (hoy solo el listado)
+- Conectar el formulario a un servicio de envío (hoy abre el correo del usuario con la solicitud prellenada)
+- Revisar los textos en inglés y las respuestas de FAQ
+- Confirmar con el cliente las cifras (`< 5 min`, `100+`, `100%`) y los testimonios

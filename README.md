@@ -1,15 +1,16 @@
 # Trust Insurance Services — sitio web
 
-Sitio estático en HTML, CSS y JavaScript puro (sin build). Bilingüe: español / inglés.
-
-## Estructura
+Sitio estático multipágina (HTML, CSS y JavaScript puro, sin build). Bilingüe: español / inglés.
 
 ```
-index.html        Página principal
-css/styles.css    Estilos
-js/i18n.js        Textos ES/EN (editar aquí el contenido)
-js/main.js        Cambio de idioma, menú móvil, formulario
-assets/           Logo, imágenes
+index.html · nosotros.html · servicios.html · blog.html · contacto.html
+seguro-auto.html · seguro-hogar.html · seguro-comercial.html · seguro-salud.html
+css/styles.css     Sistema de diseño
+js/layout.js       Header, footer e iconos compartidos
+js/main.js         Idioma, menú, animaciones, cotizador y asistente
+assets/            Logos
+tools/pages.py     Genera las páginas internas
+docs/brand.md      Identidad y guía de diseño
 ```
 
 ## Desarrollo
@@ -18,10 +19,6 @@ assets/           Logo, imágenes
 python3 -m http.server 5173
 ```
 
-Abrir http://localhost:5173
+Abrir http://localhost:5173. Para regenerar las páginas internas: `python3 tools/pages.py`.
 
-## Pendiente
-
-- Textos, logo, colores y datos de contacto reales (el contenido actual es provisional)
-- Conectar el formulario a un servicio de envío
-- Hosting y dominio
+Detalles de diseño y pendientes en [docs/brand.md](docs/brand.md).
