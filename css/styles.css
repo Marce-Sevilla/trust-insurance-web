@@ -371,7 +371,7 @@ p { margin: 0 0 1em; }
   .drop-menu a { color: var(--ice); padding: 6px 0; } .drop-menu a:hover { background: none; }
   .drop-menu .ico, .drop-menu small { display: none; }
   .drop-menu strong { font: 400 1.05rem var(--font-body); opacity: .75; }
-  .hero-grid, .split, .cta, .contact-layout, .hero-service { grid-template-columns: 1fr; }
+  .hero-grid, .split, .cta, .contact-layout, .hero-service { grid-template-columns: minmax(0, 1fr); }
   .sticky { position: static; }
   .bento { grid-template-columns: 1fr 1fr; }
   .tile.t-auto, .tile.t-health { grid-column: span 2; } .tile.t-home, .tile.t-biz { grid-column: span 1; }
@@ -464,3 +464,11 @@ body.page-contact .mobile-bar { display: none; }
 .legal ul { padding-left: 1.3em; margin: 0 0 1em; }
 .legal li { margin-bottom: .4em; }
 .legal a { color: var(--orange-dark); }
+
+/* Móvil: evitar que contenido sin saltos de línea ensanche tarjetas y columnas */
+.cta > *, .split > *, .contact-layout > *, .hero-grid > *, .hero-service > * { min-width: 0; }
+@media (max-width: 680px) {
+  .cta-actions { justify-items: stretch; width: 100%; }
+  .cta .btn { white-space: normal; text-align: center; justify-content: center; }
+  .cta .tel { font-size: 1.9rem; }
+}
