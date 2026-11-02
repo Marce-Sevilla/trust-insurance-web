@@ -46,7 +46,7 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 
 ## Estructura del sitio
 
-`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `contacto` (asistente de 3 pasos)
+`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `contacto` (asistente de 3 pasos) · `privacidad` · `terminos`
 
 ## Cómo editar
 
@@ -60,7 +60,7 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 - Confirmar licencia de las fotos: se descargaron de la web actual y parecen de banco de imágenes (servicios y formulario en tableta)
 - Foto o video propio del hero (la web actual usa un video de dos personas; no se migró por peso, 6–20 MB)
 - Confirmar que se puede publicar el retrato de cada testimonio
-- Páginas legales: el footer enlaza a las de la web actual (privacy-policy y terms-conditions)
+- Páginas legales (`privacidad`, `terminos`): borradas por mí; revisarlas con un asesor legal antes de publicar
 - Conectar el formulario a un servicio de envío (hoy abre el correo del usuario con la solicitud prellenada)
 - Revisar los textos en inglés y las respuestas de FAQ
 - Confirmar con el cliente las cifras (`< 5 min`, `100+`, `100%`) y los testimonios

@@ -294,6 +294,101 @@ for k in ORDER:
     </section>
 {cta(href=f"contacto.html?tipo={k}")}""")
 
+# ---------------------------------------------------------------- LEGALES
+UPDATED_ES, UPDATED_EN = "2 de noviembre de 2026", "November 2, 2026"
+ENTITY = "Trust Insurance Services Corp"
+
+def legal_page(file, title, title_en, eyebrow, eyebrow_en, h1, h1_en, intro, intro_en, sections, other_href, other_es, other_en):
+    body = ""
+    for n, (h, he, items) in enumerate(sections, 1):
+        body += f'      <h2 data-en="{he}">{h}</h2>\n'
+        bullets = []
+        for es, en in items:
+            if es.startswith("• "):
+                bullets.append((es[2:], en[2:]))
+                continue
+            if bullets:
+                body += "      <ul>" + "".join(f'<li data-en="{b[1]}">{b[0]}</li>' for b in bullets) + "</ul>\n"
+                bullets = []
+            body += f'      <p data-en="{en}">{es}</p>\n'
+        if bullets:
+            body += "      <ul>" + "".join(f'<li data-en="{b[1]}">{b[0]}</li>' for b in bullets) + "</ul>\n"
+    write(file, title, title_en, intro, f"""
+    <section class="page-hero gridbg" style="padding-bottom:clamp(32px,5vw,56px)">
+      <div class="container narrow-legal">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span data-en="{h1_en}">{h1}</span></nav>
+        <p class="eyebrow" data-en="{eyebrow_en}">{eyebrow}</p>
+        <h1 style="font-size:clamp(2.2rem,5vw,4rem);max-width:none" data-en="{h1_en}">{h1}</h1>
+        <p class="lead" data-en="{intro_en}">{intro}</p>
+        <p class="note" style="margin:0"><span data-en="Last updated:">Última actualización:</span> <span data-en="{UPDATED_EN}">{UPDATED_ES}</span></p>
+      </div>
+    </section>
+    <article class="container narrow-legal legal">
+{body}      <p class="note"><a href="{other_href}" data-en="{other_en}">{other_es}</a></p>
+    </article>
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+{cta().replace('<section class="section" style="padding-bottom:0">','').replace('</section>','').replace('      <div class="container">','',1)}    </section>""".rstrip() + "\n")
+
+CONTACT_ES = f"{ENTITY} · hello@trustinsuranceservices.com · (786) 807-8559 · 10505 NW 112th Ave Ste 11, Miami, FL 33178."
+CONTACT_EN = CONTACT_ES
+
+legal_page("terminos.html", "Términos y condiciones | Trust Insurance Services", "Terms & conditions | Trust Insurance Services",
+ "Legal", "Legal", "Términos y condiciones de uso", "Terms and conditions of use",
+ "Reglas para usar este sitio y alcance de nuestros servicios como agencia de seguros.",
+ "Rules for using this site and the scope of our services as an insurance agency.",
+ [
+  ("Aceptación", "Acceptance", [("Al acceder y usar este sitio, aceptas estos Términos y nuestra Política de Privacidad. Si no estás de acuerdo, no utilices el Sitio.", "By accessing and using this site, you accept these Terms and our Privacy Policy. If you do not agree, do not use the Site.")]),
+  ("Quiénes somos y nuestros servicios", "Who we are and our services", [
+    (f"{ENTITY} (en adelante, Trust Insurance) actúa como agencia/corredor de seguros. No somos la aseguradora que emite la póliza: las coberturas finales, primas y condiciones son determinadas por terceras aseguradoras.", f"{ENTITY} (Trust Insurance) acts as an insurance agency/broker. We are not the insurer that issues the policy: final coverage, premiums and conditions are determined by third-party insurers."),
+    ("El contenido del Sitio es informativo y no constituye asesoramiento legal, fiscal ni garantía de cobertura.", "The Site's content is informational and does not constitute legal or tax advice or a guarantee of coverage.")]),
+  ("Elegibilidad", "Eligibility", [("Debes ser mayor de 18 años y tener capacidad legal para contratar.", "You must be at least 18 years old and have legal capacity to enter into contracts.")]),
+  ("Uso del Sitio", "Use of the Site", [("Te comprometes a usar el Sitio de forma lícita, sin vulnerar derechos de terceros ni interferir en su funcionamiento. Podemos suspender o restringir el acceso ante incumplimientos.", "You agree to use the Site lawfully, without infringing third-party rights or interfering with its operation. We may suspend or restrict access in case of breach.")]),
+  ("Cotizaciones y solicitudes", "Quotes and requests", [
+    ("Las cotizaciones:", "Quotes:"),
+    ("• Son estimaciones basadas en la información que proporcionas y en criterios de las aseguradoras.", "• Are estimates based on the information you provide and on insurer criteria."),
+    ("• Están sujetas a verificación, suscripción y cambios por parte de la aseguradora.", "• Are subject to verification, underwriting and changes by the insurer."),
+    ("• No constituyen una oferta vinculante hasta que la aseguradora emita la póliza y se cumplan sus requisitos (por ejemplo, el pago de la prima).", "• Are not a binding offer until the insurer issues the policy and its requirements are met (for example, payment of the premium)."),
+    ("• Debes revisar la póliza y sus condiciones particulares emitidas por la aseguradora.", "• You must review the policy and its specific conditions issued by the insurer.")]),
+  ("Cuentas y comunicaciones", "Accounts and communications", [("Si creas una cuenta, eres responsable de mantener la confidencialidad de tus credenciales. Al proporcionarnos tu correo o teléfono, aceptas recibir comunicaciones relacionadas con tus cotizaciones o pólizas; puedes darte de baja del marketing cuando quieras.", "If you create an account, you are responsible for keeping your credentials confidential. By giving us your email or phone number, you agree to receive communications about your quotes or policies; you can opt out of marketing at any time.")]),
+  ("Propiedad intelectual", "Intellectual property", [("El contenido del Sitio (textos, marcas, logotipos, gráficos y software) pertenece a Trust Insurance o a sus licenciantes y está protegido por leyes de propiedad intelectual. No puedes reproducirlo ni explotarlo sin autorización.", "The Site's content (text, trademarks, logos, graphics and software) belongs to Trust Insurance or its licensors and is protected by intellectual property laws. You may not reproduce or exploit it without authorization.")]),
+  ("Conductas prohibidas", "Prohibited conduct", [("Incluyen, sin limitación: acceder sin autorización a sistemas, introducir malware, hacer scraping no autorizado, o usar el Sitio para fines ilícitos o que afecten derechos de terceros.", "These include, without limitation: gaining unauthorized access to systems, introducing malware, unauthorized scraping, or using the Site for unlawful purposes or in ways that affect third-party rights.")]),
+  ("Contacto", "Contact", [(f"Para cualquier consulta sobre estos Términos: {CONTACT_ES}", f"For any questions about these Terms: {CONTACT_EN}")]),
+ ], "privacidad.html", "Ver la Política de privacidad", "See the Privacy Policy")
+
+legal_page("privacidad.html", "Política de privacidad | Trust Insurance Services", "Privacy policy | Trust Insurance Services",
+ "Legal", "Legal", "Política de privacidad", "Privacy policy",
+ "Qué datos recopilamos, para qué los usamos y cómo puedes ejercer tus opciones.",
+ "What data we collect, what we use it for and how you can exercise your choices.",
+ [
+  ("Quiénes somos", "Who we are", [(f"{ENTITY} (Trust Insurance) es una agencia de seguros con sede en Miami, Florida. Esta política explica cómo tratamos tus datos cuando usas este sitio o nos contactas.", f"{ENTITY} (Trust Insurance) is an insurance agency based in Miami, Florida. This policy explains how we handle your data when you use this site or contact us.")]),
+  ("Qué información recopilamos", "What information we collect", [
+    ("Información que nos das:", "Information you give us:"),
+    ("• Nombre, teléfono, correo electrónico y código postal.", "• Name, phone number, email address and ZIP code."),
+    ("• El tipo de seguro que te interesa y cualquier mensaje o dato adicional que compartas al cotizar, por el formulario, correo, teléfono o WhatsApp.", "• The type of insurance you are interested in and any message or extra data you share when getting a quote, through the form, email, phone or WhatsApp."),
+    ("Información técnica:", "Technical information:"),
+    ("• Este sitio no usa cookies de seguimiento ni herramientas de analítica. Guarda en tu navegador únicamente tu preferencia de idioma.", "• This site does not use tracking cookies or analytics tools. It stores only your language preference in your browser."),
+    ("• Las tipografías se cargan desde Google Fonts, por lo que Google puede recibir tu dirección IP al cargar la página.", "• Fonts are loaded from Google Fonts, so Google may receive your IP address when the page loads.")]),
+  ("Cómo usamos tu información", "How we use your information", [
+    ("• Responder tus consultas y preparar tus cotizaciones.", "• To answer your inquiries and prepare your quotes."),
+    ("• Contactarte por teléfono, correo o WhatsApp sobre tu solicitud o tu póliza.", "• To contact you by phone, email or WhatsApp about your request or policy."),
+    ("• Mejorar nuestros servicios y este sitio.", "• To improve our services and this site."),
+    ("• Cumplir obligaciones legales y regulatorias aplicables a las agencias de seguros.", "• To comply with legal and regulatory obligations that apply to insurance agencies.")]),
+  ("Con quién compartimos tu información", "Who we share your information with", [
+    ("• Aseguradoras: compartimos los datos necesarios para obtener cotizaciones y tramitar tu póliza, con tu autorización.", "• Insurers: we share the data needed to obtain quotes and process your policy, with your authorization."),
+    ("• Proveedores que nos ayudan a operar (por ejemplo, correo electrónico, mensajería y alojamiento del sitio), que solo pueden usar los datos para prestarnos ese servicio.", "• Providers that help us operate (for example, email, messaging and site hosting), who may only use the data to provide that service to us."),
+    ("• Autoridades, cuando la ley lo exija.", "• Authorities, when required by law."),
+    ("No vendemos tu información personal.", "We do not sell your personal information.")]),
+  ("Comunicaciones y marketing", "Communications and marketing", [("Al darnos tu teléfono o correo aceptas que te contactemos sobre tu cotización o póliza. Puedes darte de baja de las comunicaciones de marketing en cualquier momento escribiéndonos o respondiendo que no deseas recibirlas.", "By giving us your phone number or email you agree that we may contact you about your quote or policy. You can opt out of marketing communications at any time by writing to us or replying that you do not wish to receive them.")]),
+  ("Servicios de terceros", "Third-party services", [("Este sitio enlaza a servicios de terceros, como WhatsApp, Google Maps y redes sociales (Facebook, Instagram, YouTube y TikTok). Al usarlos, aplican sus propias políticas de privacidad, sobre las cuales no tenemos control.", "This site links to third-party services such as WhatsApp, Google Maps and social networks (Facebook, Instagram, YouTube and TikTok). When you use them, their own privacy policies apply, over which we have no control.")]),
+  ("Conservación", "Retention", [("Conservamos tu información el tiempo necesario para atenderte, cumplir obligaciones legales y resolver disputas. Después la eliminamos o anonimizamos.", "We keep your information for as long as needed to serve you, meet legal obligations and resolve disputes. After that we delete or anonymize it.")]),
+  ("Seguridad", "Security", [("Aplicamos medidas razonables para proteger tu información. Ningún método de transmisión o almacenamiento es completamente seguro, por lo que no podemos garantizar seguridad absoluta. Evita enviar datos muy sensibles (como números de tarjeta o de seguro social) por correo o WhatsApp.", "We apply reasonable measures to protect your information. No method of transmission or storage is completely secure, so we cannot guarantee absolute security. Avoid sending highly sensitive data (such as card or Social Security numbers) by email or WhatsApp.")]),
+  ("Tus opciones y derechos", "Your choices and rights", [("Puedes pedirnos acceder a tu información, corregirla o eliminarla, y optar por no recibir comunicaciones de marketing. Escríbenos a hello@trustinsuranceservices.com y te responderemos lo antes posible.", "You can ask us to access, correct or delete your information, and to opt out of marketing communications. Write to hello@trustinsuranceservices.com and we will reply as soon as possible.")]),
+  ("Menores de edad", "Children", [("Este sitio no está dirigido a menores de 18 años y no recopilamos datos de menores de forma intencional.", "This site is not directed at people under 18 and we do not knowingly collect data from minors.")]),
+  ("Cambios a esta política", "Changes to this policy", [("Podemos actualizar esta política. Publicaremos la versión vigente en esta página con su fecha de actualización.", "We may update this policy. We will publish the current version on this page with its update date.")]),
+  ("Contacto", "Contact", [(CONTACT_ES, CONTACT_EN)]),
+ ], "terminos.html", "Ver los Términos y condiciones", "See the Terms and conditions")
+
 # ---------------------------------------------------------------- CONTACTO
 def typ(v, ic, es, en, checked=False):
     return f'<label class="type"><input type="radio" name="tipo" value="{v}"{" checked" if checked else ""}><span><i data-icon="{ic}"></i><b data-en="{en}">{es}</b></span></label>'
@@ -343,7 +438,7 @@ write("contacto.html", "Contacto y cotización | Trust Insurance Services", "Con
             <h2 data-en="Review and <em>send</em>">Revisa y <em>envía</em></h2>
             <p class="lead" data-en="Step 3 of 3">Paso 3 de 3</p>
             <div class="summary" id="sum"></div>
-            <label class="check"><input type="checkbox" name="consent"><span data-en="I agree that Trust Insurance Services may contact me by phone or email about my quote.">Autorizo a Trust Insurance Services a contactarme por teléfono o correo sobre mi cotización.</span></label>
+            <label class="check"><input type="checkbox" name="consent"><span><span data-en="I agree that Trust Insurance Services may contact me by phone or email about my quote.">Autorizo a Trust Insurance Services a contactarme por teléfono o correo sobre mi cotización.</span> <a href="privacidad.html" data-en="Privacy policy">Política de privacidad</a></span></label>
             <p class="err" style="color:#c0341a;font-weight:600;font-size:.82rem;min-height:1em;margin:-8px 0 8px" data-err="consent" role="alert"></p>
             <div class="wiz-nav"><button class="btn btn-ghost btn-noarrow" type="button" data-prev data-en="Back" style="color:var(--navy)">Atrás</button><button class="btn" type="submit" data-en="Send request">Enviar solicitud</button></div>
           </div>

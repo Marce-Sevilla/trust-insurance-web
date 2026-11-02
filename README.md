@@ -3,7 +3,7 @@
 Sitio estático multipágina (HTML, CSS y JavaScript puro, sin build). Bilingüe: español / inglés.
 
 ```
-index.html · nosotros.html · servicios.html · contacto.html
+index.html · nosotros.html · servicios.html · contacto.html · privacidad.html · terminos.html
 seguro-auto.html · seguro-hogar.html · seguro-comercial.html · seguro-salud.html
 css/styles.css     Sistema de diseño
 js/layout.js       Header, footer e iconos compartidos

@@ -79,7 +79,7 @@
           '<li><a href="https://maps.google.com/?q=10505+NW+112th+Ave+Ste+11+Miami+FL+33178" target="_blank" rel="noopener">10505 NW 112th Ave Ste 11,<br>Miami, FL 33178</a></li></ul></div>' +
       '</div>' +
       '<div class="footer-bottom"><span>© <span id="year"></span> Trust Insurance Services. <span data-en="All rights reserved.">Todos los derechos reservados.</span></span>' +
-      '<span><a href="https://trustinsuranceservices.com/privacy-policy" rel="noopener" target="_blank" data-en="Privacy policy">Política de privacidad</a> · <a href="https://trustinsuranceservices.com/terms-conditions" rel="noopener" target="_blank" data-en="Terms &amp; conditions">Términos y condiciones</a></span></div>' +
+      '<span><a href="privacidad.html" data-en="Privacy policy">Política de privacidad</a> · <a href="terminos.html" data-en="Terms &amp; conditions">Términos y condiciones</a></span></div>' +
     '</div><div class="footer-big" aria-hidden="true">TRUST</div></footer>' +
     '<nav class="mobile-bar" aria-label="Acciones rápidas"><a class="btn btn-sm btn-noarrow" href="tel:+17868078559" data-en="Call">Llamar</a><a class="btn btn-sm" href="' + WA + '" data-wa target="_blank" rel="noopener" data-en="Get a quote">Cotizar ahora</a></nav>' +
     '<div class="progress" id="progress" aria-hidden="true"></div>';
