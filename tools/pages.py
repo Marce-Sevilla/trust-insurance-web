@@ -41,7 +41,7 @@ CTA = """    <section class="section" style="padding-bottom:0">
           </div>
           <div class="cta-actions">
             <a class="tel" href="tel:+17868078559">(786) 807-8559</a>
-            <a class="btn btn-navy" href="{href}" data-en="Request a free quote">Solicitar cotización gratuita</a>
+            <a class="btn btn-navy" href="https://wa.me/13054190338?text=" data-wa target="_blank" rel="noopener" data-en="Request a free quote">Solicitar cotización gratuita</a>
           </div>
         </div>
       </div>
@@ -242,7 +242,7 @@ for k in ORDER:
             <h1 data-en="{s['h1'][1]}">{s['h1'][0]}</h1>
             <p class="lead" data-en="{s['intro'][1]}">{s['intro'][0]}</p>
             <div class="hero-actions" style="margin:0">
-              <a class="btn {'btn-navy' if k in ('home',) else ''}" href="contacto.html?tipo={k}" data-en="Get my quote">Cotizar mi seguro</a>
+              <a class="btn {'btn-navy' if k in ('home',) else ''}" href="https://wa.me/13054190338?text=" data-wa target="_blank" rel="noopener" data-en="Get my quote">Cotizar mi seguro</a>
               <a class="btn btn-ghost btn-noarrow" href="tel:+17868078559">(786) 807-8559</a>
             </div>
           </div>
