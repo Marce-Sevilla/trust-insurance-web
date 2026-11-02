@@ -3,15 +3,13 @@
 Sitio estático multipágina (HTML, CSS y JavaScript puro, sin build). Bilingüe: español / inglés.
 
 ```
-index.html · nosotros.html · servicios.html · blog.html · contacto.html
+index.html · nosotros.html · servicios.html · contacto.html
 seguro-auto.html · seguro-hogar.html · seguro-comercial.html · seguro-salud.html
 css/styles.css     Sistema de diseño
 js/layout.js       Header, footer e iconos compartidos
 js/main.js         Idioma, menú, animaciones, cotizador y asistente
 assets/            Logos
-tools/pages.py     Genera las páginas internas y artículos
-tools/import_content.py  Importa artículos de la web actual
-content/blog/      Artículos (JSON)
+tools/pages.py     Genera las páginas internas
 docs/brand.md      Identidad y guía de diseño
 ```
 

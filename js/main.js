@@ -9,7 +9,7 @@
   try {
     var qs = new URLSearchParams(location.search).get('lang');
     var saved = localStorage.getItem('trust-lang');
-    lang = qs === 'en' || qs === 'es' ? qs : (saved || ((navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'es'));
+    lang = qs === 'en' || qs === 'es' ? qs : (saved === 'en' ? 'en' : 'es');
   } catch (e) {}
 
   function applyLang() {

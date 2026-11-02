@@ -17,7 +17,7 @@
   var I = window.TRUST_ICONS;
 
   var page = (location.pathname.split('/').pop() || 'index.html');
-  function cur(f) { return (page === f || (f === 'blog.html' && page.indexOf('blog-') === 0)) ? ' aria-current="page"' : ''; }
+  function cur(f) { return page === f ? ' aria-current="page"' : ''; }
   if (page === 'contacto.html') document.body.classList.add('page-contact');
   var inServices = /^seguro-|^servicios/.test(page);
 
@@ -43,7 +43,6 @@
             '<a href="seguro-comercial.html"><span class="ico">' + I.business + '</span><span><strong data-en="Commercial insurance">Seguro Comercial</strong><small data-en="Cover what you built">Cubre lo que construiste</small></span></a>' +
             '<a href="seguro-salud.html"><span class="ico">' + I.health + '</span><span><strong data-en="Health insurance">Seguro de Salud</strong><small data-en="You and your family">Tú y tu familia</small></span></a>' +
           '</div></div>' +
-        '<a href="blog.html"' + cur('blog.html') + ' data-en="Blog">Blog</a>' +
         '<a href="contacto.html"' + cur('contacto.html') + ' data-en="Contact">Contacto</a>' +
         '<a class="btn nav-cta" href="contacto.html" data-en="Get a quote">Cotizar ahora</a>' +
       '</nav>' +
@@ -70,7 +69,7 @@
           '<li><a href="seguro-comercial.html" data-en="Commercial insurance">Seguro Comercial</a></li><li><a href="seguro-salud.html" data-en="Health insurance">Seguro de Salud</a></li></ul></div>' +
         '<div><h4 data-en="Company">Empresa</h4><ul>' +
           '<li><a href="nosotros.html" data-en="About us">Nosotros</a></li><li><a href="servicios.html" data-en="All services">Todos los servicios</a></li>' +
-          '<li><a href="blog.html">Blog</a></li><li><a href="contacto.html" data-en="Contact">Contacto</a></li></ul></div>' +
+          '<li><a href="contacto.html" data-en="Contact">Contacto</a></li></ul></div>' +
         '<div><h4 data-en="Contact">Contacto</h4><ul>' +
           '<li><a href="tel:+13054190338">(305) 419-0338</a></li>' +
           '<li><a href="mailto:hello@trustinsuranceservices.com">hello@trustinsuranceservices.com</a></li>' +

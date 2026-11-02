@@ -8,7 +8,7 @@ Los tokens viven en `:root` de `css/styles.css`.
 |---|---|
 | `logo_horizontal.png`, `logo_vertical.png`, `isotipo.png` | Originales de marca (no editar) |
 | `logo-horizontal-720.png` | Header y footer (sobre azul marino) |
-| `isotipo-360.png` | Marcas de agua y portadas del blog |
+| `isotipo-360.png` | Marcas de agua y decoración |
 | `favicon.png`, `apple-touch-icon.png` | Iconos del navegador |
 
 El logo tiene "INSURANCE" en gris claro: **usarlo siempre sobre fondos oscuros** (azul marino).
@@ -42,22 +42,22 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 
 ## Fotografía (`assets/img/`)
 
-`services/` (4 fotos 1200×800, webp) · `blog/` (portada por artículo, jpg 1200 px) · `people/` (retratos de testimonios, 220 px) · `about/` (formulario en tableta). Todas optimizadas (≈1,8 MB en total); originales de varios MB descartados.
+`services/` (4 fotos 1200×800, webp) · `people/` (retratos de testimonios, 220 px) · `about/` (formulario en tableta). Todas optimizadas (≈1,8 MB en total); originales de varios MB descartados.
 
 ## Estructura del sitio
 
-`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `blog` + 6 artículos (`blog-*.html`) · `contacto` (asistente de 3 pasos)
+`index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `contacto` (asistente de 3 pasos)
 
 ## Cómo editar
 
 - **Bilingüe:** el texto en español va en el HTML y el inglés en el atributo `data-en` del mismo elemento.
 - **Header, footer e iconos:** `js/layout.js` (un solo lugar para todas las páginas).
-- **Páginas internas y artículos:** se generan con `python3 tools/pages.py`; `index.html` se edita a mano (el bloque entre `BLOG:START` y `BLOG:END` se rellena solo).
-- **Artículos:** viven en `content/blog/*.json`, importados de la web actual con `python3 tools/import_content.py`.
+- **Páginas internas:** se generan con `python3 tools/pages.py`; `index.html` se edita a mano.
+- **Idioma:** español por defecto; el inglés solo se activa con el botón EN (o `?lang=en`).
 
 ## Pendiente
 
-- Confirmar licencia de las fotos: se descargaron de la web actual y parecen de banco de imágenes (servicios, portadas del blog, formulario en tableta)
+- Confirmar licencia de las fotos: se descargaron de la web actual y parecen de banco de imágenes (servicios y formulario en tableta)
 - Foto o video propio del hero (la web actual usa un video de dos personas; no se migró por peso, 6–20 MB)
 - Confirmar que se puede publicar el retrato de cada testimonio
 - Páginas legales: el footer enlaza a las de la web actual (privacy-policy y terms-conditions)
