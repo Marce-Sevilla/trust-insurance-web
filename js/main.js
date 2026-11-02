@@ -109,7 +109,7 @@
         qf.zip.focus(); return;
       }
       var tipo = qf.querySelector('input[name=tipo]:checked').value;
-      location.href = 'contacto.html?tipo=' + encodeURIComponent(tipo) + '&zip=' + encodeURIComponent(zip) + (lang === 'en' ? '&lang=en' : '');
+      location.href = '/contacto?tipo=' + encodeURIComponent(tipo) + '&zip=' + encodeURIComponent(zip) + (lang === 'en' ? '&lang=en' : '');
     });
   }
 

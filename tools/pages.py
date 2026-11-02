@@ -48,13 +48,18 @@ CTA = """    <section class="section" style="padding-bottom:0">
     </section>
 """
 
+import re as _re_clean
+
+def clean_links(html):
+    return _re_clean.sub(r'href="([a-z-]+)\.html([?#][^"]*)?"', lambda m: 'href="/' + ('inicio' if m.group(1) == 'index' else m.group(1)) + (m.group(2) or '') + '"', html)
+
 def write(name, title, title_en, desc, body):
-    html = HEAD.format(title=title, title_en=title_en, desc=desc) + body + TAIL
+    html = clean_links(HEAD.format(title=title, title_en=title_en, desc=desc) + body + TAIL)
     with open(os.path.join(ROOT, name), "w", encoding="utf-8") as f:
         f.write(html)
     print("wrote", name)
 
-def cta(h="Tu cobertura ideal está a <em>una llamada</em>", h_en="Your ideal coverage is <em>one call away</em>", href="contacto.html"):
+def cta(h="Tu cobertura ideal está a <em>una llamada</em>", h_en="Your ideal coverage is <em>one call away</em>", href="/contacto"):
     return CTA.format(h=h, h_en=h_en, href=href)
 
 # ---------------------------------------------------------------- NOSOTROS
@@ -62,7 +67,7 @@ write("nosotros.html", "Nosotros | Trust Insurance Services", "About | Trust Ins
  "Agencia de seguros en Florida enfocada en elegir la cobertura ideal comparando más de 100 opciones.", f"""
     <section class="page-hero gridbg">
       <div class="container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span data-en="About">Nosotros</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/inicio" data-en="Home">Inicio</a><span data-en="About">Nosotros</span></nav>
         <p class="eyebrow reveal" data-en="About us">Sobre nosotros</p>
         <h1 class="reveal" style="--d:.08s" data-en="Insurance with a <em>human face</em>">Seguros con <em>rostro humano</em></h1>
         <p class="lead reveal" style="--d:.16s" data-en="At Trust Insurance we work to give you real peace and security. We help you choose the right coverage in Florida, comparing 100+ options to find the perfect balance between price and protection.">En Trust Insurance trabajamos para darte paz y seguridad real. Te ayudamos a elegir la cobertura ideal en Florida, comparando entre más de 100 opciones para encontrar el equilibrio perfecto entre precio y respaldo.</p>
@@ -115,10 +120,10 @@ write("nosotros.html", "Nosotros | Trust Insurance Services", "About | Trust Ins
       <div class="container">
         <div class="section-head reveal"><p class="eyebrow" data-en="What we cover">Qué cubrimos</p><h2 data-en="Four ways to <em>protect yourself</em>">Cuatro formas de <em>protegerte</em></h2></div>
         <div class="other">
-          <a href="seguro-auto.html" class="reveal" data-en="Auto insurance">Seguro de Auto</a>
-          <a href="seguro-hogar.html" class="reveal" style="--d:.06s" data-en="Home insurance">Seguro de Hogar</a>
-          <a href="seguro-comercial.html" class="reveal" style="--d:.12s" data-en="Commercial insurance">Seguro Comercial</a>
-          <a href="seguro-salud.html" class="reveal" style="--d:.18s" data-en="Health insurance">Seguro de Salud</a>
+          <a href="/seguro-auto" class="reveal" data-en="Auto insurance">Seguro de Auto</a>
+          <a href="/seguro-hogar" class="reveal" style="--d:.06s" data-en="Home insurance">Seguro de Hogar</a>
+          <a href="/seguro-comercial" class="reveal" style="--d:.12s" data-en="Commercial insurance">Seguro Comercial</a>
+          <a href="/seguro-salud" class="reveal" style="--d:.18s" data-en="Health insurance">Seguro de Salud</a>
         </div>
       </div>
     </section>
@@ -200,7 +205,7 @@ write("servicios.html", "Servicios | Trust Insurance Services", "Services | Trus
  "Seguros de auto, hogar, comercial y salud en Florida. Comparamos más de 100 opciones.", f"""
     <section class="page-hero gridbg">
       <div class="container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span data-en="Services">Servicios</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/inicio" data-en="Home">Inicio</a><span data-en="Services">Servicios</span></nav>
         <p class="eyebrow reveal" data-en="Our services">Nuestros servicios</p>
         <h1 class="reveal" style="--d:.08s" data-en="Insurance for <em>every part</em> of your life">Seguros para <em>cada parte</em> de tu vida</h1>
         <p class="lead reveal" style="--d:.16s" data-en="We offer options that fit your needs and budget. Pick one to see what it covers.">Ofrecemos opciones que se adaptan a tus necesidades y presupuesto. Elige una para ver qué cubre.</p>
@@ -215,7 +220,7 @@ write("servicios.html", "Servicios | Trust Insurance Services", "Services | Trus
     <section class="section bg-navy gridbg">
       <div class="container split">
         <div class="reveal"><p class="eyebrow" data-en="Not sure what you need?">¿No sabes qué necesitas?</p><h2 data-en="We'll help you <em>decide</em>">Te ayudamos a <em>decidir</em></h2></div>
-        <div class="reveal" style="--d:.1s"><p class="lead" data-en="Tell us about your situation and we'll recommend the coverage that makes sense, with no obligation.">Cuéntanos tu situación y te recomendamos la cobertura que tiene sentido, sin compromiso.</p><a class="btn" href="contacto.html" data-en="Talk to an advisor">Hablar con un asesor</a></div>
+        <div class="reveal" style="--d:.1s"><p class="lead" data-en="Tell us about your situation and we'll recommend the coverage that makes sense, with no obligation.">Cuéntanos tu situación y te recomendamos la cobertura que tiene sentido, sin compromiso.</p><a class="btn" href="/contacto" data-en="Talk to an advisor">Hablar con un asesor</a></div>
       </div>
     </section>
 {cta()}""")
@@ -235,7 +240,7 @@ for k in ORDER:
       f"{s['es']} en Florida: {s['tag'][0]} {s['intro'][0]}", f"""
     <section class="page-hero" style="padding-bottom:clamp(40px,6vw,80px)">
       <div class="container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><a href="servicios.html" data-en="Services">Servicios</a><span data-en="{s['en']}">{s['es']}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/inicio" data-en="Home">Inicio</a><a href="/servicios" data-en="Services">Servicios</a><span data-en="{s['en']}">{s['es']}</span></nav>
         <div class="hero-service {s['cls']} reveal">
           <div>
             <p class="eyebrow" data-en="{s['en']}">{s['es']}</p>
@@ -316,7 +321,7 @@ def legal_page(file, title, title_en, eyebrow, eyebrow_en, h1, h1_en, intro, int
     write(file, title, title_en, intro, f"""
     <section class="page-hero gridbg" style="padding-bottom:clamp(32px,5vw,56px)">
       <div class="container narrow-legal">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span data-en="{h1_en}">{h1}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/inicio" data-en="Home">Inicio</a><span data-en="{h1_en}">{h1}</span></nav>
         <p class="eyebrow" data-en="{eyebrow_en}">{eyebrow}</p>
         <h1 style="font-size:clamp(2.2rem,5vw,4rem);max-width:none" data-en="{h1_en}">{h1}</h1>
         <p class="lead" data-en="{intro_en}">{intro}</p>
@@ -397,7 +402,7 @@ write("contacto.html", "Contacto y cotización | Trust Insurance Services", "Con
  "Cotiza gratis tu seguro en Florida. Llámanos al (786) 807-8559 o escríbenos a hello@trustinsuranceservices.com.", f"""
     <section class="page-hero gridbg" style="padding-bottom:clamp(32px,5vw,64px)">
       <div class="container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="Home">Inicio</a><span data-en="Contact">Contacto</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/inicio" data-en="Home">Inicio</a><span data-en="Contact">Contacto</span></nav>
         <p class="eyebrow reveal" data-en="Free quote">Cotización gratuita</p>
         <h1 class="reveal" style="--d:.08s" data-en="Your ideal coverage, <em>in three steps</em>">Tu cobertura ideal, <em>en tres pasos</em></h1>
         <p class="lead reveal" style="--d:.16s" data-en="Our team is ready to help you find the right insurance. Reach us through any channel.">Nuestro equipo está listo para ayudarte a encontrar el seguro perfecto. Contáctanos por cualquier canal.</p>
@@ -438,7 +443,7 @@ write("contacto.html", "Contacto y cotización | Trust Insurance Services", "Con
             <h2 data-en="Review and <em>send</em>">Revisa y <em>envía</em></h2>
             <p class="lead" data-en="Step 3 of 3">Paso 3 de 3</p>
             <div class="summary" id="sum"></div>
-            <label class="check"><input type="checkbox" name="consent"><span><span data-en="I agree that Trust Insurance Services may contact me by phone or email about my quote.">Autorizo a Trust Insurance Services a contactarme por teléfono o correo sobre mi cotización.</span> <a href="privacidad.html" data-en="Privacy policy">Política de privacidad</a></span></label>
+            <label class="check"><input type="checkbox" name="consent"><span><span data-en="I agree that Trust Insurance Services may contact me by phone or email about my quote.">Autorizo a Trust Insurance Services a contactarme por teléfono o correo sobre mi cotización.</span> <a href="/privacidad" data-en="Privacy policy">Política de privacidad</a></span></label>
             <p class="err" style="color:#c0341a;font-weight:600;font-size:.82rem;min-height:1em;margin:-8px 0 8px" data-err="consent" role="alert"></p>
             <div class="wiz-nav"><button class="btn btn-ghost btn-noarrow" type="button" data-prev data-en="Back" style="color:var(--navy)">Atrás</button><button class="btn" type="submit" data-en="Send request">Enviar solicitud</button></div>
           </div>

@@ -16,9 +16,9 @@ docs/brand.md      Identidad y guía de diseño
 ## Desarrollo
 
 ```bash
-python3 -m http.server 5173
+python3 tools/serve.py 5173
 ```
 
-Abrir http://localhost:5173. Para regenerar las páginas internas: `python3 tools/pages.py`.
+Abrir http://localhost:5173 (URLs limpias: `/inicio`, `/nosotros`, `/seguro-auto`…; el archivo `_redirects` hace lo mismo en producción). Para regenerar las páginas internas: `python3 tools/pages.py`.
 
 Detalles de diseño y pendientes en [docs/brand.md](docs/brand.md).

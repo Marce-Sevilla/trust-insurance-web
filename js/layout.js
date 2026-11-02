@@ -18,9 +18,10 @@
   };
   var I = window.TRUST_ICONS;
 
-  var page = (location.pathname.split('/').pop() || 'index.html');
+  var page = (location.pathname.split('/').pop() || 'inicio').replace(/\.html$/, '');
+  if (page === 'index') page = 'inicio';
   function cur(f) { return page === f ? ' aria-current="page"' : ''; }
-  if (page === 'contacto.html') document.body.classList.add('page-contact');
+  if (page === 'contacto') document.body.classList.add('page-contact');
   var inServices = /^seguro-|^servicios/.test(page);
 
   var tick = [
@@ -34,18 +35,18 @@
   var header =
     '<div class="topbar" aria-label="Avisos"><div class="topbar-track" aria-hidden="false">' + tickHtml + tickHtml + tickHtml + tickHtml + '</div></div>' +
     '<header class="site-header"><div class="container"><div class="header-inner">' +
-      '<a class="brand" href="index.html" aria-label="Trust Insurance Services — Inicio"><img src="assets/logo-horizontal-720.png" width="720" height="284" alt="Trust Insurance"></a>' +
+      '<a class="brand" href="/inicio" aria-label="Trust Insurance Services — Inicio"><img src="assets/logo-horizontal-720.png" width="720" height="284" alt="Trust Insurance"></a>' +
       '<nav class="nav" id="nav" aria-label="Principal">' +
-        '<a href="index.html"' + cur('index.html') + ' data-en="Home">Inicio</a>' +
-        '<a href="nosotros.html"' + cur('nosotros.html') + ' data-en="About">Nosotros</a>' +
+        '<a href="/inicio"' + cur('inicio') + ' data-en="Home">Inicio</a>' +
+        '<a href="/nosotros"' + cur('nosotros') + ' data-en="About">Nosotros</a>' +
         '<div class="nav-drop' + (inServices ? ' current' : '') + '"><button type="button" aria-haspopup="true" data-en="Services">Servicios</button>' +
           '<div class="drop-menu">' +
-            '<a href="seguro-auto.html"><span class="ico">' + I.auto + '</span><span><strong data-en="Auto insurance">Seguro de Auto</strong><small data-en="Fair price on the road">Precio justo al conducir</small></span></a>' +
-            '<a href="seguro-hogar.html"><span class="ico">' + I.home + '</span><span><strong data-en="Home insurance">Seguro de Hogar</strong><small data-en="Protect your biggest asset">Protege tu mayor patrimonio</small></span></a>' +
-            '<a href="seguro-comercial.html"><span class="ico">' + I.business + '</span><span><strong data-en="Commercial insurance">Seguro Comercial</strong><small data-en="Cover what you built">Cubre lo que construiste</small></span></a>' +
-            '<a href="seguro-salud.html"><span class="ico">' + I.health + '</span><span><strong data-en="Health insurance">Seguro de Salud</strong><small data-en="You and your family">Tú y tu familia</small></span></a>' +
+            '<a href="/seguro-auto"><span class="ico">' + I.auto + '</span><span><strong data-en="Auto insurance">Seguro de Auto</strong><small data-en="Fair price on the road">Precio justo al conducir</small></span></a>' +
+            '<a href="/seguro-hogar"><span class="ico">' + I.home + '</span><span><strong data-en="Home insurance">Seguro de Hogar</strong><small data-en="Protect your biggest asset">Protege tu mayor patrimonio</small></span></a>' +
+            '<a href="/seguro-comercial"><span class="ico">' + I.business + '</span><span><strong data-en="Commercial insurance">Seguro Comercial</strong><small data-en="Cover what you built">Cubre lo que construiste</small></span></a>' +
+            '<a href="/seguro-salud"><span class="ico">' + I.health + '</span><span><strong data-en="Health insurance">Seguro de Salud</strong><small data-en="You and your family">Tú y tu familia</small></span></a>' +
           '</div></div>' +
-        '<a href="contacto.html"' + cur('contacto.html') + ' data-en="Contact">Contacto</a>' +
+        '<a href="/contacto"' + cur('contacto') + ' data-en="Contact">Contacto</a>' +
         '<a class="btn nav-cta" href="' + WA + '" data-wa target="_blank" rel="noopener" data-en="Get a quote">Cotizar ahora</a>' +
       '</nav>' +
       '<div class="header-actions">' +
@@ -68,18 +69,18 @@
           '<p data-en="Insurance agency in Florida. We compare 100+ options so you get the right balance of price and protection.">Agencia de seguros en Florida. Comparamos más de 100 opciones para darte el equilibrio justo entre precio y respaldo.</p>' +
           '<div class="social"><a href="https://www.facebook.com/trustinsuranceserv" rel="noopener" target="_blank" aria-label="Facebook">' + fb + '</a><a href="https://www.instagram.com/trustinsuranceserv/" rel="noopener" target="_blank" aria-label="Instagram">' + ig + '</a><a href="' + WA + '" data-wa rel="noopener" target="_blank" aria-label="WhatsApp">' + waIcon + '</a><a href="https://www.youtube.com/@TrustInsuranceservices" rel="noopener" target="_blank" aria-label="YouTube">' + yt + '</a><a href="https://www.tiktok.com/@trustinsuranceservices" rel="noopener" target="_blank" aria-label="TikTok">' + tk + '</a></div></div>' +
         '<div><h4 data-en="Services">Servicios</h4><ul>' +
-          '<li><a href="seguro-auto.html" data-en="Auto insurance">Seguro de Auto</a></li><li><a href="seguro-hogar.html" data-en="Home insurance">Seguro de Hogar</a></li>' +
-          '<li><a href="seguro-comercial.html" data-en="Commercial insurance">Seguro Comercial</a></li><li><a href="seguro-salud.html" data-en="Health insurance">Seguro de Salud</a></li></ul></div>' +
+          '<li><a href="/seguro-auto" data-en="Auto insurance">Seguro de Auto</a></li><li><a href="/seguro-hogar" data-en="Home insurance">Seguro de Hogar</a></li>' +
+          '<li><a href="/seguro-comercial" data-en="Commercial insurance">Seguro Comercial</a></li><li><a href="/seguro-salud" data-en="Health insurance">Seguro de Salud</a></li></ul></div>' +
         '<div><h4 data-en="Company">Empresa</h4><ul>' +
-          '<li><a href="nosotros.html" data-en="About us">Nosotros</a></li><li><a href="servicios.html" data-en="All services">Todos los servicios</a></li>' +
-          '<li><a href="contacto.html" data-en="Contact">Contacto</a></li></ul></div>' +
+          '<li><a href="/nosotros" data-en="About us">Nosotros</a></li><li><a href="/servicios" data-en="All services">Todos los servicios</a></li>' +
+          '<li><a href="/contacto" data-en="Contact">Contacto</a></li></ul></div>' +
         '<div><h4 data-en="Contact">Contacto</h4><ul>' +
           '<li><a href="tel:+17868078559">(786) 807-8559</a></li>' +
           '<li><a href="mailto:hello@trustinsuranceservices.com">hello@trustinsuranceservices.com</a></li>' +
           '<li><a href="https://maps.google.com/?q=10505+NW+112th+Ave+Ste+11+Miami+FL+33178" target="_blank" rel="noopener">10505 NW 112th Ave Ste 11,<br>Miami, FL 33178</a></li></ul></div>' +
       '</div>' +
       '<div class="footer-bottom"><span>© <span id="year"></span> Trust Insurance Services. <span data-en="All rights reserved.">Todos los derechos reservados.</span></span>' +
-      '<span><a href="privacidad.html" data-en="Privacy policy">Política de privacidad</a> · <a href="terminos.html" data-en="Terms &amp; conditions">Términos y condiciones</a></span></div>' +
+      '<span><a href="/privacidad" data-en="Privacy policy">Política de privacidad</a> · <a href="/terminos" data-en="Terms &amp; conditions">Términos y condiciones</a></span></div>' +
     '</div><div class="footer-big" aria-hidden="true">TRUST</div></footer>' +
     '<nav class="mobile-bar" aria-label="Acciones rápidas"><a class="btn btn-sm btn-noarrow" href="tel:+17868078559" data-en="Call">Llamar</a><a class="btn btn-sm" href="' + WA + '" data-wa target="_blank" rel="noopener" data-en="Get a quote">Cotizar ahora</a></nav>' +
     '<div class="progress" id="progress" aria-hidden="true"></div>';

@@ -1,0 +1,15 @@
+# URLs limpias: sin .html y con /inicio como página principal.
+# (Cloudflare Workers/Pages y Netlify leen este archivo; en otros hosts, configurar lo equivalente.)
+/                  /inicio            302
+/index             /inicio            301
+/index.html        /inicio            301
+/inicio.html       /inicio            301
+/nosotros.html     /nosotros          301
+/servicios.html    /servicios         301
+/seguro-auto.html  /seguro-auto       301
+/seguro-hogar.html /seguro-hogar      301
+/seguro-comercial.html /seguro-comercial 301
+/seguro-salud.html /seguro-salud      301
+/contacto.html     /contacto          301
+/privacidad.html   /privacidad        301
+/terminos.html     /terminos          301
