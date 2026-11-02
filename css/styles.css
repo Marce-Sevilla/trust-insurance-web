@@ -164,11 +164,6 @@ p { margin: 0 0 1em; }
 .quote-card .btn { width: 100%; justify-content: center; }
 .quote-note { font-size: .76rem; color: rgba(250,254,255,.55); margin: 12px 0 0; text-align: center; }
 
-/* Marquesina de palabras (Citadel) */
-.band { background: var(--cream); border-block: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
-.band-track { display: inline-flex; gap: 40px; padding: 22px 0; animation: marquee 34s linear infinite; font: italic 500 clamp(1.4rem, 2.6vw, 2.2rem) var(--font-display); align-items: center; }
-.band-track span::after { content: "✦"; color: var(--orange); margin-left: 40px; font-style: normal; font-size: .7em; }
-
 /* Cifras */
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
 .stat { padding: 12px clamp(16px, 3vw, 48px); border-left: 1px solid rgba(250,254,255,.2); }
