@@ -26,6 +26,8 @@
       if (!el.hasAttribute('data-es-aria')) el.setAttribute('data-es-aria', el.getAttribute('aria-label') || '');
       el.setAttribute('aria-label', lang === 'en' ? el.getAttribute('data-en-aria') : el.getAttribute('data-es-aria'));
     });
+    var waText = lang === 'en' ? 'Hello! I would like to get an insurance quote.' : 'Hola, quisiera cotizar un seguro.';
+    doc.querySelectorAll('a[data-wa]').forEach(function (a) { a.href = a.href.split('?text=')[0] + '?text=' + encodeURIComponent(waText); });
     var t = doc.getElementById('lang-toggle'); if (t) t.textContent = lang === 'es' ? 'English' : 'Español';
     try { localStorage.setItem('trust-lang', lang); } catch (e) {}
   }

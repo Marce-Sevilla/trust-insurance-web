@@ -450,3 +450,12 @@ body.page-contact .mobile-bar { display: none; }
 @keyframes spin { to { rotate: 360deg; } }
 @media (prefers-reduced-motion: reduce) { .car { left: 50% !important; translate: -50% 0; } }
 @media (max-width: 680px) { .road { height: 54px; } .car { width: 78px; height: auto; } }
+
+/* WhatsApp */
+.wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 65; display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px 12px 14px; border-radius: var(--pill); background: #25d366; color: #06361a; font: 700 .85rem var(--font-body); text-decoration: none; box-shadow: 0 12px 30px rgba(0,0,0,.28); transition: transform .25s var(--ease), box-shadow .25s; }
+.wa-float:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(37,211,102,.45); }
+.wa-float svg { width: 28px; height: 28px; fill: currentColor; flex: none; }
+.btn-wa { background: #25d366; color: #06361a; } .btn-wa:hover { background: #1fbe5a; box-shadow: 0 12px 28px rgba(37,211,102,.4); }
+.btn-wa svg { width: 20px; height: 20px; fill: currentColor; }
+.btn-wa::after { display: none; }
+@media (max-width: 680px) { .wa-float { bottom: 92px; right: 14px; padding: 12px; } .wa-float span { display: none; } body.page-contact .wa-float { bottom: 18px; } }
