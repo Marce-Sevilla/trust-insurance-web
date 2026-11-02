@@ -52,7 +52,7 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 
 - **Bilingüe:** el texto en español va en el HTML y el inglés en el atributo `data-en` del mismo elemento.
 - **Header, footer e iconos:** `js/layout.js` (un solo lugar para todas las páginas).
-- **Páginas internas:** se generan con `python3 tools/pages.py`; `index.html` se edita a mano.
+- **Páginas internas:** se generan con `python3 tools/pages.py`; `inicio.html` se edita a mano (`index.html` solo redirige a `/inicio`).
 - **Idioma:** español por defecto; el inglés solo se activa con el botón de idioma (English) (o `?lang=en`).
 
 ## Pendiente
