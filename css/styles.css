@@ -439,3 +439,26 @@ a.post { text-decoration: none; color: inherit; }
 .lang-note:empty { display: none; }
 html:not([lang="en"]) .lang-note { display: none; }
 @media (max-width: 680px) { .posts.two { grid-template-columns: 1fr; } .article { font-size: 1.04rem; } }
+
+/* Fotografía */
+.tile { background: var(--c, var(--navy)); min-height: 480px; }
+.tile .ph { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .8s var(--ease); z-index: 0; }
+.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--c) 34%, color-mix(in srgb, var(--c) 35%, transparent) 70%, transparent); }
+.tile:hover .ph { transform: scale(1.06); }
+.tile > * { position: relative; z-index: 1; }
+.tile.t-biz, .tile.t-health { --c: var(--sky); }
+.tile.t-health { --c: var(--cream); }
+.tile.t-auto { --c: var(--navy); } .tile.t-home { --c: var(--orange); }
+.tile .ico { margin: 22px 0 auto; backdrop-filter: blur(8px); }
+.avatar { overflow: hidden; background: var(--sky); }
+.avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.post .cover img.ph { width: 100%; height: 100%; max-width: none; opacity: 1; filter: none; object-fit: cover; position: absolute; inset: 0; transition: transform .6s var(--ease); }
+.post:hover .cover img.ph { transform: scale(1.05); }
+.post .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,19,43,.7), transparent 55%); }
+.post .cover b { z-index: 1; }
+.art-cover { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: var(--r-lg); margin: 0 0 8px; }
+.hero-service .photo { aspect-ratio: 4 / 3; border-radius: 22px; background-size: cover; background-position: center; box-shadow: 0 30px 70px rgba(0,0,0,.28); position: relative; }
+.hero-service .photo .badge { position: absolute; left: -18px; bottom: 24px; width: 72px; height: 72px; border-radius: 22px; background: #fff; color: var(--orange); display: grid; place-items: center; box-shadow: 0 14px 34px rgba(0,0,0,.2); }
+.hero-service .photo .badge svg { width: 36px; height: 36px; }
+.photo-card { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 5; background: var(--navy) center / cover; box-shadow: 0 30px 70px rgba(0,29,61,.25); }
+@media (max-width: 960px) { .hero-service .photo .badge { left: 14px; } .photo-card { aspect-ratio: 16 / 10; } .tile { min-height: 420px; } }

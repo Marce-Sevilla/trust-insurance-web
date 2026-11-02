@@ -40,6 +40,10 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 - Secciones que alternan color de fondo y bento de servicios (Broworks, Citadel)
 - Carrusel de testimonios, FAQ en acordeón, footer con marca gigante
 
+## Fotografía (`assets/img/`)
+
+`services/` (4 fotos 1200×800, webp) · `blog/` (portada por artículo, jpg 1200 px) · `people/` (retratos de testimonios, 220 px) · `about/` (formulario en tableta). Todas optimizadas (≈1,8 MB en total); originales de varios MB descartados.
+
 ## Estructura del sitio
 
 `index` · `nosotros` · `servicios` · `seguro-auto` · `seguro-hogar` · `seguro-comercial` · `seguro-salud` · `blog` + 6 artículos (`blog-*.html`) · `contacto` (asistente de 3 pasos)
@@ -53,8 +57,9 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 
 ## Pendiente
 
-- Fotos o video reales (hero, servicios, testimonios); hoy el diseño usa solo logo, color y tipografía
-- Imágenes de portada de los artículos (hoy usan el isotipo; las originales están en la web actual)
+- Confirmar licencia de las fotos: se descargaron de la web actual y parecen de banco de imágenes (servicios, portadas del blog, formulario en tableta)
+- Foto o video propio del hero (la web actual usa un video de dos personas; no se migró por peso, 6–20 MB)
+- Confirmar que se puede publicar el retrato de cada testimonio
 - Páginas legales: el footer enlaza a las de la web actual (privacy-policy y terms-conditions)
 - Conectar el formulario a un servicio de envío (hoy abre el correo del usuario con la solicitud prellenada)
 - Revisar los textos en inglés y las respuestas de FAQ

@@ -76,6 +76,7 @@ write("nosotros.html", "Nosotros | Trust Insurance Services", "About | Trust Ins
           <h2 data-en="Protect what you've worked <em>so hard</em> for">Proteger lo que tanto <em>has trabajado</em></h2>
         </div>
         <div class="reveal" style="--d:.1s">
+          <div class="photo-card" style="background-image:url(assets/img/about/formulario.jpg);margin-bottom:32px" role="img" aria-label="Formulario de seguro en tableta"></div>
           <p class="lead" data-en="Insurance is only valuable when you understand it. That's why we explain each coverage, deductible and exclusion in plain language, and we stay by your side before, during and after you buy your policy.">Un seguro solo vale cuando lo entiendes. Por eso te explicamos cada cobertura, deducible y exclusión en lenguaje claro, y te acompañamos antes, durante y después de contratar tu póliza.</p>
           <p class="lead" data-en="We are a Miami-based agency serving clients across Florida in Spanish and English.">Somos una agencia con sede en Miami que atiende clientes en todo Florida, en español e inglés.</p>
         </div>
@@ -245,7 +246,7 @@ for k in ORDER:
               <a class="btn btn-ghost btn-noarrow" href="tel:+13054190338">(305) 419-0338</a>
             </div>
           </div>
-          <div class="big-ico" data-icon="{s['icon']}"></div>
+          <div class="photo" style="background-image:url(assets/img/services/{k}.webp)" role="img" aria-label="{s['es']}"><span class="badge" data-icon="{s['icon']}"></span></div>
         </div>
       </div>
     </section>
@@ -318,7 +319,7 @@ def esc(t):
 
 def post_card(p, i=0):
     d = f' style="--d:{i*0.1:.1f}s"' if i else ""
-    return (f'<a class="post reveal" href="{p["file"]}"{d}><div class="cover"><img src="assets/isotipo-360.png" alt=""><b>Insurance Updates</b></div>'
+    return (f'<a class="post reveal" href="{p["file"]}"{d}><div class="cover"><img class="ph" src="assets/img/blog/{p["slug"]}.jpg" alt="" loading="lazy"><b>Insurance Updates</b></div>'
             f'<div class="body"><time datetime="{p["date"]}" data-en="{p["date_en"]} · {p["read"]} min read">{p["date_es"]} · {p["read"]} min de lectura</time>'
             f'<h3>{p["title"]}</h3><p>{p["excerpt"]}</p><span class="link-arrow" data-en="Read article">Leer artículo</span></div></a>')
 
@@ -370,6 +371,7 @@ for i, p in enumerate(POSTS):
       </div>
     </section>
     <article class="container narrow-art article">
+      <img class="art-cover" src="assets/img/blog/{p['slug']}.jpg" alt="" width="1200" height="514">
 {p['html']}
     </article>
     <section class="section" style="padding-bottom:0">
