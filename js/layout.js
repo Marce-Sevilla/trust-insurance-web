@@ -47,7 +47,7 @@
         '<a class="btn nav-cta" href="contacto.html" data-en="Get a quote">Cotizar ahora</a>' +
       '</nav>' +
       '<div class="header-actions">' +
-        '<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar idioma / Change language">EN</button>' +
+        '<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar idioma / Change language">English</button>' +
         '<a class="btn btn-sm" href="contacto.html" data-en="Get a quote">Cotizar ahora</a>' +
         '<button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menú / Menu"><span></span></button>' +
       '</div>' +

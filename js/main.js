@@ -26,7 +26,7 @@
       if (!el.hasAttribute('data-es-aria')) el.setAttribute('data-es-aria', el.getAttribute('aria-label') || '');
       el.setAttribute('aria-label', lang === 'en' ? el.getAttribute('data-en-aria') : el.getAttribute('data-es-aria'));
     });
-    var t = doc.getElementById('lang-toggle'); if (t) t.textContent = lang === 'es' ? 'EN' : 'ES';
+    var t = doc.getElementById('lang-toggle'); if (t) t.textContent = lang === 'es' ? 'English' : 'Español';
     try { localStorage.setItem('trust-lang', lang); } catch (e) {}
   }
   function T(es, en) { return lang === 'en' ? en : es; }
