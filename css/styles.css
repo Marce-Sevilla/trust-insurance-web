@@ -437,3 +437,20 @@ body.page-contact .mobile-bar { display: none; }
 .hero-service .photo .badge svg { width: 36px; height: 36px; }
 .photo-card { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 5; background: var(--navy) center / cover; box-shadow: 0 30px 70px rgba(0,29,61,.25); }
 @media (max-width: 960px) { .hero-service .photo .badge { left: 14px; } .photo-card { aspect-ratio: 16 / 10; } .tile { min-height: 420px; } }
+
+/* Hero con fotografía */
+.hero-visual { position: relative; }
+.hero-grid { grid-template-columns: 1fr 1fr; }
+.hero-photo { height: clamp(520px, 76vh, 640px); border-radius: var(--r-lg); background-size: cover; background-position: 86% 20%; box-shadow: 0 40px 90px rgba(0,29,61,.28); }
+.hero-visual .quote-card { position: absolute; left: -72px; bottom: -40px; width: min(380px, 72%); padding: 24px; }
+.hero-visual .quote-card h2 { font-size: 1.5rem; margin-bottom: 14px; }
+.hero-visual .quote-card > p, .hero-visual .quote-note { display: none; }
+.hero-visual .types { grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+.hero-visual .type span { flex-direction: column; gap: 6px; padding: 10px 4px; font-size: .72rem; text-align: center; justify-content: center; }
+.hero-visual .field { margin-bottom: 10px; }
+.hero-visual .quote-card .btn { padding: 14px 20px; }
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+  .hero-visual .quote-card { position: relative; left: 0; bottom: 0; width: auto; margin: -56px 12px 0; padding: clamp(24px, 3vw, 36px); }
+}

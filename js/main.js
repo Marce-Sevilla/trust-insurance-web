@@ -22,6 +22,10 @@
       if (!el.hasAttribute('data-es-placeholder')) el.setAttribute('data-es-placeholder', el.placeholder);
       el.placeholder = lang === 'en' ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-es-placeholder');
     });
+    doc.querySelectorAll('[data-en-aria]').forEach(function (el) {
+      if (!el.hasAttribute('data-es-aria')) el.setAttribute('data-es-aria', el.getAttribute('aria-label') || '');
+      el.setAttribute('aria-label', lang === 'en' ? el.getAttribute('data-en-aria') : el.getAttribute('data-es-aria'));
+    });
     var t = doc.getElementById('lang-toggle'); if (t) t.textContent = lang === 'es' ? 'EN' : 'ES';
     try { localStorage.setItem('trust-lang', lang); } catch (e) {}
   }
