@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trust Insurance Services</title>
+  <meta name="description" content="Trust Insurance Services — seguros que te respaldan.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">TRUST <span>Insurance Services</span></a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#services" data-i18n="nav.services"></a>
+        <a href="#about" data-i18n="nav.about"></a>
+        <a href="#contact" data-i18n="nav.contact"></a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <h1 data-i18n="hero.title"></h1>
+        <p data-i18n="hero.subtitle"></p>
+        <a class="btn" href="#contact" data-i18n="hero.cta"></a>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2 data-i18n="services.title"></h2>
+        <div class="cards">
+          <article class="card"><h3 data-i18n="services.auto.title"></h3><p data-i18n="services.auto.text"></p></article>
+          <article class="card"><h3 data-i18n="services.home.title"></h3><p data-i18n="services.home.text"></p></article>
+          <article class="card"><h3 data-i18n="services.life.title"></h3><p data-i18n="services.life.text"></p></article>
+          <article class="card"><h3 data-i18n="services.business.title"></h3><p data-i18n="services.business.text"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+      <div class="container narrow">
+        <h2 data-i18n="about.title"></h2>
+        <p data-i18n="about.text"></p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container narrow">
+        <h2 data-i18n="contact.title"></h2>
+        <p data-i18n="contact.text"></p>
+        <form class="form" id="contact-form" novalidate>
+          <label><span data-i18n="contact.name"></span><input name="name" type="text" required autocomplete="name"></label>
+          <label><span data-i18n="contact.email"></span><input name="email" type="email" required autocomplete="email"></label>
+          <label><span data-i18n="contact.phone"></span><input name="phone" type="tel" autocomplete="tel"></label>
+          <label><span data-i18n="contact.message"></span><textarea name="message" rows="4"></textarea></label>
+          <button class="btn" type="submit" data-i18n="contact.send"></button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Trust Insurance Services. <span data-i18n="footer.rights"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
