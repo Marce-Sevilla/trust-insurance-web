@@ -27,6 +27,7 @@ TAIL = """  </main>
   <div id="site-footer"></div>
   <script src="js/layout.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6ae95079d8e76540febc87e0" data-source="WEB_USER"></script>
 </body>
 </html>
 """
@@ -372,7 +373,8 @@ legal_page("privacidad.html", "Política de privacidad | Trust Insurance Service
     ("• Nombre, teléfono, correo electrónico y código postal.", "• Name, phone number, email address and ZIP code."),
     ("• El tipo de seguro que te interesa y cualquier mensaje o dato adicional que compartas al cotizar, por el formulario, correo, teléfono o WhatsApp.", "• The type of insurance you are interested in and any message or extra data you share when getting a quote, through the form, email, phone or WhatsApp."),
     ("Información técnica:", "Technical information:"),
-    ("• Este sitio no usa cookies de seguimiento ni herramientas de analítica. Guarda en tu navegador únicamente tu preferencia de idioma.", "• This site does not use tracking cookies or analytics tools. It stores only your language preference in your browser."),
+    ("• Este sitio no usa herramientas de analítica. Guarda en tu navegador tu preferencia de idioma y, si usas el chat, el servicio de chat puede usar cookies o almacenamiento local necesarios para mantener tu conversación.", "• This site does not use analytics tools. It stores your language preference in your browser and, if you use the chat, the chat service may use cookies or local storage needed to keep your conversation going."),
+    ("• El chat del sitio es un servicio de terceros (LeadConnector / HighLevel). Los mensajes y datos que escribas en el chat se procesan por ese proveedor y llegan a nuestro equipo.", "• The site's chat is a third-party service (LeadConnector / HighLevel). The messages and data you type in the chat are processed by that provider and reach our team."),
     ("• Las tipografías se cargan desde Google Fonts, por lo que Google puede recibir tu dirección IP al cargar la página.", "• Fonts are loaded from Google Fonts, so Google may receive your IP address when the page loads.")]),
   ("Cómo usamos tu información", "How we use your information", [
     ("• Responder tus consultas y preparar tus cotizaciones.", "• To answer your inquiries and prepare your quotes."),
@@ -381,7 +383,7 @@ legal_page("privacidad.html", "Política de privacidad | Trust Insurance Service
     ("• Cumplir obligaciones legales y regulatorias aplicables a las agencias de seguros.", "• To comply with legal and regulatory obligations that apply to insurance agencies.")]),
   ("Con quién compartimos tu información", "Who we share your information with", [
     ("• Aseguradoras: compartimos los datos necesarios para obtener cotizaciones y tramitar tu póliza, con tu autorización.", "• Insurers: we share the data needed to obtain quotes and process your policy, with your authorization."),
-    ("• Proveedores que nos ayudan a operar (por ejemplo, correo electrónico, mensajería y alojamiento del sitio), que solo pueden usar los datos para prestarnos ese servicio.", "• Providers that help us operate (for example, email, messaging and site hosting), who may only use the data to provide that service to us."),
+    ("• Proveedores que nos ayudan a operar (por ejemplo, correo electrónico, mensajería, chat y alojamiento del sitio), que solo pueden usar los datos para prestarnos ese servicio.", "• Providers that help us operate (for example, email, messaging, chat and site hosting), who may only use the data to provide that service to us."),
     ("• Autoridades, cuando la ley lo exija.", "• Authorities, when required by law."),
     ("No vendemos tu información personal.", "We do not sell your personal information.")]),
   ("Comunicaciones y marketing", "Communications and marketing", [("Al darnos tu teléfono o correo aceptas que te contactemos sobre tu cotización o póliza. Puedes darte de baja de las comunicaciones de marketing en cualquier momento escribiéndonos o respondiendo que no deseas recibirlas.", "By giving us your phone number or email you agree that we may contact you about your quote or policy. You can opt out of marketing communications at any time by writing to us or replying that you do not wish to receive them.")]),

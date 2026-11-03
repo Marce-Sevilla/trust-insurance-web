@@ -55,6 +55,10 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 - **Páginas internas:** se generan con `python3 tools/pages.py`; `inicio.html` se edita a mano (`index.html` solo redirige a `/inicio`).
 - **Idioma:** español por defecto; el inglés solo se activa con el botón de idioma (English) (o `?lang=en`).
 
+## Chat
+
+Widget de LeadConnector (HighLevel) cargado con el `<script>` del final de cada página (`data-widget-id=6ae95079d8e76540febc87e0`). Textos, idioma, colores y posición de la burbuja se configuran en el panel de LeadConnector, no en este código. En móvil la barra inferior se acorta para dejarle sitio.
+
 ## Pendiente
 
 - Confirmar licencia de las fotos: se descargaron de la web actual y parecen de banco de imágenes (servicios y formulario en tableta)
@@ -64,3 +68,5 @@ Texto blanco sobre naranja ≈ 3,4:1: solo en botones de texto grande y en negri
 - Conectar el formulario a un servicio de envío (hoy abre el correo del usuario con la solicitud prellenada)
 - Revisar los textos en inglés y las respuestas de FAQ
 - Confirmar con el cliente las cifras (`< 5 min`, `100+`, `100%`) y los testimonios
+- Valorar un aviso de cookies/consentimiento ahora que el chat de terceros puede usar cookies o almacenamiento local
+- El texto de la burbuja del chat salió en inglés ("Hi there! Have a question?"): traducirlo en el panel de LeadConnector

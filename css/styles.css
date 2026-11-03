@@ -472,3 +472,10 @@ body.page-contact .mobile-bar { display: none; }
   .cta .btn { white-space: normal; text-align: center; justify-content: center; }
   .cta .tel { font-size: 1.9rem; }
 }
+
+/* Móvil: dejar libre la esquina inferior derecha para la burbuja del chat */
+@media (max-width: 680px) {
+  .mobile-bar { right: 86px; padding: 8px; gap: 8px; grid-template-columns: 1fr 1.35fr; }
+  .mobile-bar a { padding: 12px 6px; font-size: .68rem; letter-spacing: .06em; gap: 6px; }
+  .mobile-bar .btn::after { display: none; }
+}
